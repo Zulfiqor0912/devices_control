@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="montserrat_bold">
+        <item name="android:fontFamily">@raw/montserrat_bold</item>
+    </style>
+
+    <style name="montserrat_light">
+        <item name="android:fontFamily">@raw/montserrat_light</item>
+    </style>
+
+    <style name="montserrat_medium">
+        <item name="android:fontFamily">@raw/montserrat_medium</item>
+    </style>
+
+    <style name="montserrat_medium_italic">
+        <item name="android:fontFamily">@raw/montserrat_medium_italic</item>
+    </style>
+
+    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">#D9D9D9</item>
+        <item name="boxStrokeWidth">1dp</item>
+    </style>
+
+</resources>
