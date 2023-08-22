@@ -54,22 +54,6 @@
         android:layout_margin="32dp"
         android:text="Scanning Code......"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/button_scan"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_scan"
-        style="@style/montserrat_bold"
-        android:layout_width="279dp"
-        android:layout_height="49dp"
-        android:layout_margin="32dp"
-        android:background="@drawable/bg_next"
-        android:elevation="0dp"
-        android:foreground="?selectableItemBackgroundBorderless"
-        android:text="Scar QR Code"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

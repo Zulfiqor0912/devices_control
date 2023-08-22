@@ -17,8 +17,7 @@ class ControlScreen : Fragment(R.layout.screen_control) {
     private val viewModel: ControlViewModel by viewModels<ControlViewModelImpl>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        viewModel.openScanLiveData.observe(viewLifecycleOwner, openScanObserver)
+        viewModel.openScanLiveData.observe(requireActivity(), openScanObserver)
 
         binding.apply {
             buttonIn.setOnClickListener {

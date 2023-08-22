@@ -5,5 +5,7 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.DeviceControl" parent="Base.Theme.DeviceControl" />
+    <style name="Theme.DeviceControl" parent="Base.Theme.DeviceControl">
+        <item name="colorPrimary">#5D74E8</item>
+    </style>
 </resources>

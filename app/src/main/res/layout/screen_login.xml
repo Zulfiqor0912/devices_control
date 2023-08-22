@@ -116,7 +116,6 @@
             android:background="@drawable/bg_next"
             android:elevation="0dp"
             android:text="Log In"
-            android:foreground="?selectableItemBackgroundBorderless"
             android:textAllCaps="false"
             android:textColor="@color/white" />
 

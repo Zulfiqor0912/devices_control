@@ -47,6 +47,6 @@ class LoginScreen : Fragment(R.layout.screen_login) {
     }
 
     private val openScanObserver = Observer<Unit> {
-        findNavController().navigate(R.id.action_loginScreen_to_scanScreen)
+        findNavController().navigate(R.id.action_loginScreen_to_homeScreen)
     }
 }

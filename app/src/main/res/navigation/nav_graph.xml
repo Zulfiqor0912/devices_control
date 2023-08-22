@@ -16,10 +16,8 @@
             app:popUpTo="@id/splashScreen"
             app:popUpToInclusive="true" />
         <action
-            android:id="@+id/action_splashScreen_to_scanScreen"
-            app:destination="@id/scanScreen"
-            app:popUpTo="@id/splashScreen"
-            app:popUpToInclusive="true" />
+            android:id="@+id/action_splashScreen_to_homeScreen"
+            app:destination="@id/homeScreen" />
     </fragment>
     <fragment
         android:id="@+id/loginScreen"
@@ -27,8 +25,8 @@
         android:label="LoginScreen"
         tools:layout="@layout/screen_login">
         <action
-            android:id="@+id/action_loginScreen_to_scanScreen"
-            app:destination="@id/scanScreen" />
+            android:id="@+id/action_loginScreen_to_homeScreen"
+            app:destination="@id/homeScreen" />
     </fragment>
     <fragment
         android:id="@+id/scanScreen"
@@ -37,11 +35,22 @@
         tools:layout="@layout/screen_scaner">
         <action
             android:id="@+id/action_scanScreen_to_controlScreen"
-            app:destination="@id/controlScreen" />
+            app:destination="@id/controlScreen"
+            app:popUpTo="@id/scanScreen"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/controlScreen"
         android:name="uz.gita.devicecontrol.ui.screens.control.ControlScreen"
         android:label="ControlScreen"
         tools:layout="@layout/screen_control"/>
+    <fragment
+        android:id="@+id/homeScreen"
+        android:name="uz.gita.devicecontrol.ui.screens.home.HomeScreen"
+        android:label="HomeScreen"
+        tools:layout="@layout/screen_home_1">
+        <action
+            android:id="@+id/action_homeScreen_to_scanScreen"
+            app:destination="@id/scanScreen" />
+    </fragment>
 </navigation>

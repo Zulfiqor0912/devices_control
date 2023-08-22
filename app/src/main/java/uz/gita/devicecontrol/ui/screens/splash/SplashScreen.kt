@@ -15,10 +15,10 @@ class SplashScreen : Fragment(R.layout.screen_splash) {
         super.onViewCreated(view, savedInstanceState)
         h = Handler(Looper.myLooper()!!)
         h.postDelayed({
-            if (a == 1) {
+            if (a == 0) {
                 findNavController().navigate(R.id.action_splashScreen_to_loginScreen)
             } else {
-                findNavController().navigate(R.id.action_splashScreen_to_scanScreen)
+                findNavController().navigate(R.id.action_splashScreen_to_homeScreen)
             }
         }, 2000)
     }
