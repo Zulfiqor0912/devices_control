@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import uz.gita.devicecontrol.data.model.DeviceData
+import uz.gita.devicecontrol.data.common.model.DeviceData
 import uz.gita.devicecontrol.databinding.ItemInfoBinding
 
 class ItemAdapter : ListAdapter<DeviceData, ItemAdapter.Holder>(MyDiffUtil) {

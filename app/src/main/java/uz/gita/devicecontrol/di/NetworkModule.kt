@@ -10,7 +10,9 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import uz.gita.devicecontrol.data.remote.api.Api
+import uz.gita.devicecontrol.data.remote.api.ApiHelper
+import uz.gita.devicecontrol.data.remote.api.ApiHelperImpl
+import uz.gita.devicecontrol.data.remote.api.ApiService
 import javax.inject.Singleton
 
 
@@ -40,5 +42,17 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideApi(retrofit: Retrofit): Api = retrofit.create(Api::class.java )
+    fun provideApi(retrofit: Retrofit): ApiHelper = retrofit.create(ApiHelper::class.java)
+
+    @Provides
+    @Singleton
+    fun provideApiService(retrofit: Retrofit): ApiService {
+        return retrofit.create(ApiService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideApiHelper(apiHelperImpl: ApiHelperImpl): ApiHelper {
+        return apiHelperImpl
+    }
 }

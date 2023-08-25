@@ -11,7 +11,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import uz.gita.devicecontrol.R
-import uz.gita.devicecontrol.data.model.DeviceData
+import uz.gita.devicecontrol.data.common.model.DeviceData
 import uz.gita.devicecontrol.databinding.ScreenStoryBinding
 import uz.gita.devicecontrol.ui.adapters.ItemAdapter
 import uz.gita.devicecontrol.ui.screens.story.viewmodel.StoryViewModel
