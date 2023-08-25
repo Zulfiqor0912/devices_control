@@ -24,6 +24,7 @@ class ScanScreen : Fragment(R.layout.screen_scaner) {
     private val binding by viewBinding(ScreenScanerBinding::bind)
     private val viewModel: ScanViewModel by viewModels<ScanViewModelImpl>()
     private  var codeScanner: CodeScanner?=null
+    private var id=""
 
 
 
@@ -35,6 +36,7 @@ class ScanScreen : Fragment(R.layout.screen_scaner) {
             codeScanner?.decodeCallback = DecodeCallback {
                 activity?.runOnUiThread {
                     Toast.makeText(requireContext(), it.text, Toast.LENGTH_LONG).show()
+                    id = it.text
                     viewModel.openInfo()
                 }
             }
@@ -72,7 +74,7 @@ class ScanScreen : Fragment(R.layout.screen_scaner) {
     }
 
     private val openInfoScreenObserver = Observer<Unit> {
-        findNavController().navigate(R.id.action_scanScreen_to_controlScreen)
+        findNavController().navigate(ScanScreenDirections.actionScanScreenToControlScreen(id))
     }
 
 

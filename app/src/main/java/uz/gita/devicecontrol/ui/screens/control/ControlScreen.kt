@@ -5,7 +5,9 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.NavArgs
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
 import uz.gita.devicecontrol.R
 import uz.gita.devicecontrol.databinding.ScreenControlBinding
@@ -15,6 +17,7 @@ import uz.gita.devicecontrol.ui.screens.control.viewmodel.impl.ControlViewModelI
 class ControlScreen : Fragment(R.layout.screen_control) {
     private val binding by viewBinding(ScreenControlBinding::bind)
     private val viewModel: ControlViewModel by viewModels<ControlViewModelImpl>()
+    private val navArgs by navArgs<ControlScreenArgs>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         viewModel.openScanLiveData.observe(requireActivity(), openScanObserver)
@@ -27,6 +30,8 @@ class ControlScreen : Fragment(R.layout.screen_control) {
             buttonOut.setOnClickListener {
                 viewModel.clickTakeOut()
             }
+
+            driverInputId.text = navArgs.id
         }
     }
 

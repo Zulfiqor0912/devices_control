@@ -16,15 +16,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6">
+        app:layout_constraintVertical_bias="0.4">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/login_text1"
             style="@style/montserrat_bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="8dp"
+            android:layout_marginVertical="78dp"
             android:text="Welcome"
+            android:layout_gravity="center_horizontal"
             android:textColor="#5D74E8"
             android:textSize="32sp" />
 
@@ -84,35 +85,12 @@
             android:paddingEnd="4dp"
             android:textSize="16sp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="8dp"
-            android:orientation="horizontal">
-
-            <androidx.appcompat.widget.AppCompatCheckBox
-                android:id="@+id/checkbox"
-                android:layout_width="28dp"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#0DCEDA"
-                app:buttonTint="#5D74E8" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                style="@style/montserrat_medium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginHorizontal="8dp"
-                android:text="Parolni eslab qolish"
-                android:textSize="14sp" />
-        </LinearLayout>
-
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/login_next"
             style="@style/montserrat_bold"
             android:layout_width="match_parent"
             android:layout_height="49dp"
-            android:layout_marginVertical="16dp"
+            android:layout_marginVertical="32dp"
             android:background="@drawable/bg_next"
             android:elevation="0dp"
             android:text="Log In"

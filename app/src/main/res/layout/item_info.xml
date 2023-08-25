@@ -4,7 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingHorizontal="6dp"
-    android:paddingVertical="8dp">
+    android:paddingVertical="8dp"
+    android:id="@+id/item_"
+    android:background="@drawable/bg_next"
+    android:layout_marginVertical="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,7 +30,8 @@
                 android:layout_height="wrap_content"
                 android:padding="4dp"
                 android:text="Device:"
-                android:textSize="16dp" />
+                android:textSize="16dp"
+                android:textColor="@color/white"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/text_device_name"
@@ -35,6 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="4dp"
+                android:textColor="@color/white"
                 android:text="Laptop" />
 
         </LinearLayout>
@@ -51,7 +56,8 @@
                 android:layout_height="wrap_content"
                 android:padding="4dp"
                 android:text="User:"
-                android:textSize="16dp" />
+                android:textSize="16dp"
+                android:textColor="@color/white"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/text_user_name"
@@ -59,6 +65,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="4dp"
+                android:textColor="@color/white"
                 android:text="Zulfiqor" />
 
         </LinearLayout>
@@ -75,7 +82,8 @@
                 android:layout_height="wrap_content"
                 android:padding="4dp"
                 android:text="User:"
-                android:textSize="16dp" />
+                android:textSize="16dp"
+                android:textColor="@color/white"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/text_data"
@@ -83,6 +91,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="4dp"
+                android:textColor="@color/white"
                 android:text="12.09.2002" />
 
         </LinearLayout>

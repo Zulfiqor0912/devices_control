@@ -17,7 +17,9 @@
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_splashScreen_to_homeScreen"
-            app:destination="@id/homeScreen" />
+            app:destination="@id/homeScreen"
+            app:popUpTo="@id/splashScreen"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/loginScreen"
@@ -26,7 +28,9 @@
         tools:layout="@layout/screen_login">
         <action
             android:id="@+id/action_loginScreen_to_homeScreen"
-            app:destination="@id/homeScreen" />
+            app:destination="@id/homeScreen"
+            app:popUpTo="@id/loginScreen"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/scanScreen"
@@ -43,14 +47,38 @@
         android:id="@+id/controlScreen"
         android:name="uz.gita.devicecontrol.ui.screens.control.ControlScreen"
         android:label="ControlScreen"
-        tools:layout="@layout/screen_control"/>
+        tools:layout="@layout/screen_control">
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/homeScreen"
         android:name="uz.gita.devicecontrol.ui.screens.home.HomeScreen"
         android:label="HomeScreen"
-        tools:layout="@layout/screen_home_1">
+        tools:layout="@layout/screen_home">
         <action
             android:id="@+id/action_homeScreen_to_scanScreen"
             app:destination="@id/scanScreen" />
+        <action
+            android:id="@+id/action_homeScreen_to_storyScreen"
+            app:destination="@id/storyScreen" />
     </fragment>
+    <fragment
+        android:id="@+id/storyScreen"
+        android:name="uz.gita.devicecontrol.ui.screens.story.StoryScreen"
+        android:label="StoryScreen"
+        tools:layout="@layout/screen_story">
+        <argument
+            android:name="number"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_storyScreen_to_infoScreen"
+            app:destination="@id/infoScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoScreen"
+        android:name="uz.gita.devicecontrol.ui.screens.info.InfoScreen"
+        android:label="InfoScreen"
+        tools:layout="@layout/screen_item_info"/>
 </navigation>

@@ -11,8 +11,8 @@ import uz.gita.devicecontrol.R
 class SplashScreen : Fragment(R.layout.screen_splash) {
     private lateinit var h: Handler
     private val a = 1
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         h = Handler(Looper.myLooper()!!)
         h.postDelayed({
             if (a == 0) {
@@ -21,5 +21,10 @@ class SplashScreen : Fragment(R.layout.screen_splash) {
                 findNavController().navigate(R.id.action_splashScreen_to_homeScreen)
             }
         }, 2000)
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
     }
 }
