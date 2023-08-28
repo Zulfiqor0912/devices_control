@@ -35,14 +35,11 @@ class NetworkModule {
     @Singleton
     fun provideRetrofit2(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("")
+            .baseUrl("https://in.tekinwifi.uz/api/v1.0/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
 
-    @Provides
-    @Singleton
-    fun provideApi(retrofit: Retrofit): ApiHelper = retrofit.create(ApiHelper::class.java)
 
     @Provides
     @Singleton

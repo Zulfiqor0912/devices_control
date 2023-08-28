@@ -6,8 +6,10 @@ import android.os.Looper
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import dagger.hilt.android.AndroidEntryPoint
 import uz.gita.devicecontrol.R
 
+@AndroidEntryPoint
 class SplashScreen : Fragment(R.layout.screen_splash) {
     private lateinit var h: Handler
     private val a = 1
@@ -15,7 +17,7 @@ class SplashScreen : Fragment(R.layout.screen_splash) {
         super.onCreate(savedInstanceState)
         h = Handler(Looper.myLooper()!!)
         h.postDelayed({
-            if (a == 0) {
+            if (a == 1) {
                 findNavController().navigate(R.id.action_splashScreen_to_loginScreen)
             } else {
                 findNavController().navigate(R.id.action_splashScreen_to_homeScreen)

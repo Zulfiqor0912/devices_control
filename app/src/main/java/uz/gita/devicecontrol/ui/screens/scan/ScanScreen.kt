@@ -14,12 +14,14 @@ import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.budiyev.android.codescanner.CodeScanner
 import com.budiyev.android.codescanner.DecodeCallback
+import dagger.hilt.android.AndroidEntryPoint
 import uz.gita.devicecontrol.R
 import uz.gita.devicecontrol.databinding.ScreenScanerBinding
 import uz.gita.devicecontrol.ui.screens.scan.viewmodel.ScanViewModel
 import uz.gita.devicecontrol.ui.screens.scan.viewmodel.impl.ScanViewModelImpl
 
 
+@AndroidEntryPoint
 class ScanScreen : Fragment(R.layout.screen_scaner) {
     private val binding by viewBinding(ScreenScanerBinding::bind)
     private val viewModel: ScanViewModel by viewModels<ScanViewModelImpl>()

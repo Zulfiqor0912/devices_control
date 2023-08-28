@@ -9,12 +9,13 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
+import dagger.hilt.android.AndroidEntryPoint
 import uz.gita.devicecontrol.R
-import uz.gita.devicecontrol.data.common.model.User
 import uz.gita.devicecontrol.databinding.ScreenLoginBinding
 import uz.gita.devicecontrol.ui.screens.login.viewmodel.LoginViewModel
 import uz.gita.devicecontrol.ui.screens.login.viewmodel.impl.LoginViewModelImpl
 
+@AndroidEntryPoint
 class LoginScreen : Fragment(R.layout.screen_login) {
     private val binding by viewBinding(ScreenLoginBinding::bind)
     private val viewModel: LoginViewModel by viewModels<LoginViewModelImpl>()

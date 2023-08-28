@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
+import dagger.hilt.android.AndroidEntryPoint
 import uz.gita.devicecontrol.R
 import uz.gita.devicecontrol.data.common.model.DeviceData
 import uz.gita.devicecontrol.databinding.ScreenStoryBinding
@@ -17,6 +18,7 @@ import uz.gita.devicecontrol.ui.adapters.ItemAdapter
 import uz.gita.devicecontrol.ui.screens.story.viewmodel.StoryViewModel
 import uz.gita.devicecontrol.ui.screens.story.viewmodel.impl.StoryViewModelImpl
 
+@AndroidEntryPoint
 class StoryScreen : Fragment(R.layout.screen_story) {
     private val binding by viewBinding(ScreenStoryBinding::bind)
     private val viewModel: StoryViewModel by viewModels<StoryViewModelImpl>()
