@@ -4,5 +4,6 @@ import androidx.lifecycle.LiveData
 
 interface ScanViewModel {
     val openInfoLiveData: LiveData<Unit>
+
     fun openInfo()
 }

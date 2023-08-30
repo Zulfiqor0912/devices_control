@@ -12,7 +12,8 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import uz.gita.devicecontrol.R
-import uz.gita.devicecontrol.data.common.model.DeviceData
+import uz.gita.devicecontrol.data.common.model.TestData
+import uz.gita.devicecontrol.data.remote.models.message.ResponseMessage
 import uz.gita.devicecontrol.databinding.ScreenStoryBinding
 import uz.gita.devicecontrol.ui.adapters.ItemAdapter
 import uz.gita.devicecontrol.ui.screens.story.viewmodel.StoryViewModel
@@ -23,7 +24,7 @@ class StoryScreen : Fragment(R.layout.screen_story) {
     private val binding by viewBinding(ScreenStoryBinding::bind)
     private val viewModel: StoryViewModel by viewModels<StoryViewModelImpl>()
     private lateinit var adapter: ItemAdapter
-    private lateinit var list: ArrayList<DeviceData>
+    private lateinit var list: ArrayList<TestData>
     private val args by navArgs<StoryScreenArgs>()
 
 
@@ -38,7 +39,7 @@ class StoryScreen : Fragment(R.layout.screen_story) {
         adapter = ItemAdapter()
         list = ArrayList()
 
-        for (i in 0..120) list.add(DeviceData("Kompyuter"))
+        for (i in 0..120) list.add(TestData("Kompyuter"))
 
         binding.apply {
             val number = arguments

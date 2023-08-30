@@ -33,7 +33,7 @@ class LoginScreen : Fragment(R.layout.screen_login) {
 
             loginNext.setOnClickListener {
                 if (username.text?.toString()?.trim() != "" && password.text?.toString()?.trim() != "") {
-                    viewModel.clickNextButton(username.text.toString().trim(), username.text.toString().trim())
+                    viewModel.clickNextButton(username.text.toString().trim(), password.text.toString().trim())
                 } else {
                     Toast.makeText(
                         requireContext(),

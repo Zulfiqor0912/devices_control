@@ -38,7 +38,7 @@ class ScanScreen : Fragment(R.layout.screen_scaner) {
             codeScanner?.decodeCallback = DecodeCallback {
                 activity?.runOnUiThread {
                     Toast.makeText(requireContext(), it.text, Toast.LENGTH_LONG).show()
-                    id = it.text
+                    id = "A1234"
                     viewModel.openInfo()
                 }
             }

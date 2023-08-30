@@ -29,6 +29,7 @@
         <action
             android:id="@+id/action_loginScreen_to_homeScreen"
             app:destination="@id/homeScreen"
+            app:popEnterAnim="@android:anim/slide_out_right"
             app:popUpTo="@id/loginScreen"
             app:popUpToInclusive="true" />
     </fragment>
@@ -59,10 +60,12 @@
         tools:layout="@layout/screen_home">
         <action
             android:id="@+id/action_homeScreen_to_scanScreen"
-            app:destination="@id/scanScreen" />
+            app:destination="@id/scanScreen"
+            app:enterAnim="@anim/nav_default_enter_anim" />
         <action
             android:id="@+id/action_homeScreen_to_storyScreen"
-            app:destination="@id/storyScreen" />
+            app:destination="@id/storyScreen"
+            app:enterAnim="@android:anim/bounce_interpolator" />
     </fragment>
     <fragment
         android:id="@+id/storyScreen"

@@ -6,10 +6,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import uz.gita.devicecontrol.data.common.model.DeviceData
+import uz.gita.devicecontrol.data.common.model.TestData
 import uz.gita.devicecontrol.databinding.ItemInfoBinding
 
-class ItemAdapter : ListAdapter<DeviceData, ItemAdapter.Holder>(MyDiffUtil) {
-    private var clickProductItem: ((data: DeviceData) -> Unit)? = null
+class ItemAdapter : ListAdapter<TestData, ItemAdapter.Holder>(MyDiffUtil) {
+    private var clickProductItem: ((data: TestData) -> Unit)? = null
 
     inner class Holder(private val binding: ItemInfoBinding) : ViewHolder(binding.root) {
 
@@ -22,7 +23,7 @@ class ItemAdapter : ListAdapter<DeviceData, ItemAdapter.Holder>(MyDiffUtil) {
         fun bind() {
             binding.apply {
                 with(currentList[adapterPosition]) {
-                    textDeviceName.text = name
+                    textDeviceName.text = message
                 }
             }
         }
@@ -30,12 +31,12 @@ class ItemAdapter : ListAdapter<DeviceData, ItemAdapter.Holder>(MyDiffUtil) {
 
     }
 
-    object MyDiffUtil : DiffUtil.ItemCallback<DeviceData>() {
-        override fun areItemsTheSame(oldItem: DeviceData, newItem: DeviceData): Boolean {
-            return oldItem.name == newItem.name
+    object MyDiffUtil : DiffUtil.ItemCallback<TestData>() {
+        override fun areItemsTheSame(oldItem: TestData, newItem: TestData): Boolean {
+            return oldItem.message == newItem.message
         }
 
-        override fun areContentsTheSame(oldItem: DeviceData, newItem: DeviceData): Boolean {
+        override fun areContentsTheSame(oldItem: TestData, newItem: TestData): Boolean {
             return oldItem == newItem
         }
 
@@ -49,7 +50,7 @@ class ItemAdapter : ListAdapter<DeviceData, ItemAdapter.Holder>(MyDiffUtil) {
         return holder.bind()
     }
 
-    fun clickItem(block: (data: DeviceData) -> Unit) {
+    fun clickItem(block: (data: TestData) -> Unit) {
         clickProductItem = block
     }
 }

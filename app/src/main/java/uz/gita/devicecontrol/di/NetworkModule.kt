@@ -2,6 +2,7 @@ package uz.gita.devicecontrol.di
 
 import android.content.Context
 import com.chuckerteam.chucker.api.ChuckerInterceptor
+import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -10,6 +11,7 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import uz.gita.devicecontrol.util.constants.Constants.*
 import uz.gita.devicecontrol.data.remote.api.ApiHelper
 import uz.gita.devicecontrol.data.remote.api.ApiHelperImpl
 import uz.gita.devicecontrol.data.remote.api.ApiService
@@ -35,8 +37,9 @@ class NetworkModule {
     @Singleton
     fun provideRetrofit2(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://in.tekinwifi.uz/api/v1.0/")
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))
+            .baseUrl(BASEURL.value)
+            .client(okHttpClient)
             .build()
     }
 
