@@ -25,21 +25,21 @@ import uz.gita.devicecontrol.ui.screens.scan.viewmodel.impl.ScanViewModelImpl
 class ScanScreen : Fragment(R.layout.screen_scaner) {
     private val binding by viewBinding(ScreenScanerBinding::bind)
     private val viewModel: ScanViewModel by viewModels<ScanViewModelImpl>()
-    private  var codeScanner: CodeScanner?=null
-    private var id=""
-
-
+    private var codeScanner: CodeScanner? = null
+    private var id = ""
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         viewModel.openInfoLiveData.observe(requireActivity(), openInfoScreenObserver)
-        if (codeScanner == null){
+        viewModel.openHomeLiveData.observe(requireActivity(), openNextScreenObserver)
+        viewModel.networkMessageLiveData.observe(viewLifecycleOwner, messageObserver)
+        if (codeScanner == null) {
             codeScanner = CodeScanner(requireContext(), binding.scannerView)
             codeScanner?.decodeCallback = DecodeCallback {
                 activity?.runOnUiThread {
                     Toast.makeText(requireContext(), it.text, Toast.LENGTH_LONG).show()
                     id = "A1234"
-                    viewModel.openInfo()
+                    viewModel.openNextScreen(id)
                 }
             }
         }
@@ -77,6 +77,14 @@ class ScanScreen : Fragment(R.layout.screen_scaner) {
 
     private val openInfoScreenObserver = Observer<Unit> {
         findNavController().navigate(ScanScreenDirections.actionScanScreenToControlScreen(id))
+    }
+
+    private val openNextScreenObserver = Observer<Unit> {
+        findNavController().popBackStack()
+    }
+
+    private val messageObserver = Observer<String> {
+        Toast.makeText(requireContext(), it, Toast.LENGTH_LONG)
     }
 
 

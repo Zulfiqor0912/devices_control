@@ -1,5 +1,6 @@
 package uz.gita.devicecontrol.ui.screens.control
 
+import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -54,6 +55,10 @@ class ControlScreen : Fragment(R.layout.screen_control) {
                 fill(4)
                 viewModel.clickTake(insertRequest)
             }
+
+            controlBack.setOnClickListener {
+                viewModel.clickBackButton()
+            }
         }
 
     }
@@ -62,9 +67,10 @@ class ControlScreen : Fragment(R.layout.screen_control) {
         findNavController().popBackStack()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun loadView(data: DeviceData) {
         binding.apply {
-            driverInputId.text = data.id.toString()
+            driverInputId.text = "ID: ${data.id}"
             driverInputUserName.text = data.name
         }
     }
@@ -72,17 +78,19 @@ class ControlScreen : Fragment(R.layout.screen_control) {
     @RequiresApi(Build.VERSION_CODES.O)
     private fun fill(status: Int) {
         binding.apply {
-            if (checkbox.isChecked) fcId = 1
+            fcId = if (checkbox.isChecked) 1
+            else null
 
             insertRequest = InsertRequest(
                 timeNow(),
                 descEnter.text.toString(),
                 qrResponse.data.employee_id,
-                fcId!!,
+                fcId,
                 qrResponse.data.id,
                 qrResponse.data.room_id,
                 status
             )
+            Log.d("DDD","${insertRequest.fc_id}")
         }
     }
 

@@ -6,7 +6,7 @@ data class DeviceTakeData(
     val company_id: Int = 1,
     val created_at: String = "sd",
     val employee_id: Int = 1,
-    val fc_id: Int = 1,
+    val fc_id: Int? = 1,
     val id: Int = 1,
     val product_id: Int = 1,
     val room_id: Int = 1,

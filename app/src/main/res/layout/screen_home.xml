@@ -24,6 +24,9 @@
         android:background="@drawable/bg_next"
         android:text="Olib kirilgan"
         android:textAllCaps="false"
+        android:shadowColor="#031EA3"
+        android:shadowDy="3"
+        android:shadowRadius="8"
         android:textColor="@color/white"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/button_scan"
@@ -32,7 +35,7 @@
         app:layout_constraintTop_toBottomOf="@id/inventor_logo"
         app:layout_constraintVertical_bias="0.2" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <Button
         android:id="@+id/take_out"
         style="@style/montserrat_bold"
         android:layout_width="279dp"
@@ -42,22 +45,25 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="18sp"
+        android:shadowColor="#031EA3"
+        android:shadowDy="3"
+        android:shadowRadius="8"
         app:layout_constraintBottom_toTopOf="@+id/button_scan"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/take_in" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <Button
         android:id="@+id/button_scan"
-        style="@style/montserrat_bold"
         android:layout_width="279dp"
-        android:layout_height="49dp"
+        android:layout_height="53dp"
         android:layout_margin="32dp"
-        android:background="@drawable/bg_next"
-        android:text="Scan QR Code"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
+        android:shadowColor="#031EA3"
+        android:shadowDy="3"
+        android:shadowRadius="8"
+        android:text="QR kodni scanerla"
         android:textSize="16sp"
+        style="@style/buttonStyle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

@@ -6,6 +6,9 @@ interface StoryViewModel {
     val openItemInfoLiveData: LiveData<Unit>
     val openHomeLiveData:LiveData<Unit>
 
+    // click item
     fun clickItem()
+
+    // open home screen
     fun clickBack()
 }

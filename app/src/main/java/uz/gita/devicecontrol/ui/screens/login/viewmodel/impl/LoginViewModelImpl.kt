@@ -5,6 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import uz.gita.devicecontrol.data.common.source.Pref
 import uz.gita.devicecontrol.data.remote.models.request.LoginRequest
@@ -28,14 +30,14 @@ class LoginViewModelImpl @Inject constructor(
     override fun clickNextButton(user: String, password: String) {
         try {
             viewModelScope.launch {
-                repositoryImpl.login(LoginRequest(user, password)).let { it ->
+                val response = repositoryImpl.login(LoginRequest(user, password))
+                response.let { it ->
                     if (it.isSuccessful) {
                         it.body().let {
                             store.saveToken(it!!.access_token)
                             Log.d(TAG, "clickNextButton: ${it.access_token}")
                         }
-                        Log.d("EEE", "Open")
-
+                        Log.d("EEE", "Ochilgan")
                         openScanLiveData.value = Unit
                     } else {
                         if (it.code() == 400) {
@@ -46,7 +48,6 @@ class LoginViewModelImpl @Inject constructor(
                     }
                 }
             }
-        } catch (e: Exception) {
-        }
+        }catch (_:Exception){}
     }
 }

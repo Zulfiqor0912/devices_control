@@ -21,7 +21,7 @@
             android:layout_margin="6dp"
             android:clickable="true"
             android:focusable="true"
-            android:foreground="?selectableItemBackgroundBorderless"
+            android:background="?selectableItemBackgroundBorderless"
             android:padding="6dp"
             android:src="@drawable/baseline_arrow_back_ios_24" />
 
@@ -32,8 +32,12 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:padding="6dp"
+            android:shadowColor="#031EA3"
+            android:shadowDy="3"
+            android:shadowRadius="8"
             android:text="Buyurtma haqida"
             android:textColor="@color/white"
             android:textSize="18sp" />
     </androidx.appcompat.widget.Toolbar>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

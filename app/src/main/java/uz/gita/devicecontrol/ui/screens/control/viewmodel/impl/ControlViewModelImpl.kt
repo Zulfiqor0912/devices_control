@@ -34,6 +34,10 @@ class ControlViewModelImpl @Inject constructor(
                         )
                         responseLiveData.postValue(Resource.success(response.body()))
                     } else {
+                        Log.d(
+                            "TTT",
+                            "${response.code()}"
+                        )
                         responseLiveData.postValue(Resource.error("Xatolik yuz berdi"))
                     }
                 }
@@ -50,10 +54,10 @@ class ControlViewModelImpl @Inject constructor(
                     repositoryImpl.inOut(data).let { response ->
                         if (response.isSuccessful) {
                             takeInLiveData.postValue(Resource.success(response.body()))
-                            Log.d("TAK","${response.body()!!.data.id}")
+                            Log.d("TAK", "${response.body()!!.data.id}")
                             openScanLiveData.value = Unit
                         } else {
-                            Log.d("TAK","${response.code()}")
+                            Log.d("TAK", "${response.code()}")
                             takeInLiveData.postValue(Resource.error("Xatolik yuz berdi"))
                         }
                     }
@@ -61,5 +65,9 @@ class ControlViewModelImpl @Inject constructor(
             }
         } catch (e: Exception) {
         }
+    }
+
+    override fun clickBackButton() {
+        openScanLiveData.value = Unit
     }
 }

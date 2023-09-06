@@ -16,4 +16,6 @@ interface ControlViewModel {
     fun getDeviceById(id: String)
     fun clickTake(data: InsertRequest)
 //    fun clickTakeOut(data: InsertRequest)
+
+    fun clickBackButton()
 }

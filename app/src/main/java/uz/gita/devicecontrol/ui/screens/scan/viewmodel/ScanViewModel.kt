@@ -4,6 +4,9 @@ import androidx.lifecycle.LiveData
 
 interface ScanViewModel {
     val openInfoLiveData: LiveData<Unit>
+    val openHomeLiveData: LiveData<Unit>
+    val networkMessageLiveData: LiveData<String>
 
-    fun openInfo()
+    // open next screen: home or info
+    fun openNextScreen(id: String)
 }

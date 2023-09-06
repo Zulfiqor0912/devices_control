@@ -6,7 +6,7 @@ data class InsertRequest(
     val action_date: String = "",
     val comment: String = "",
     val employee_id: Int = -1,
-    val fc_id: Int = -1,
+    val fc_id: Int? = null,
     val product_id: Int = -1,
     val room_id: Int = -1,
     val status: Int? = null

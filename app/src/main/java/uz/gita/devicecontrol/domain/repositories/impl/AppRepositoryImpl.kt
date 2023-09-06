@@ -1,6 +1,10 @@
 package uz.gita.devicecontrol.domain.repositories.impl
 
 import android.util.Log
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.onEach
 import retrofit2.Response
 import uz.gita.devicecontrol.data.common.source.Pref
 import uz.gita.devicecontrol.data.remote.api.ApiHelper
@@ -19,6 +23,7 @@ class AppRepositoryImpl @Inject constructor(
     override suspend fun login(loginRequest: LoginRequest): Response<LoginResponse> {
         Log.d("QQQ", loginRequest.email + loginRequest.password)
         return apiHelper.userLogin(loginRequest)
+
     }
 
     override suspend fun getDeviceById(id: String): Response<QRResponse> {

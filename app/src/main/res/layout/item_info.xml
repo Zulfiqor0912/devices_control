@@ -29,7 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="4dp"
-                android:text="Device:"
+                android:text="Qurilma nomi:"
                 android:textSize="16dp"
                 android:textColor="@color/white"/>
 
@@ -55,7 +55,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="4dp"
-                android:text="User:"
+                android:text="Javobgar shaxs:"
                 android:textSize="16dp"
                 android:textColor="@color/white"/>
 
@@ -81,7 +81,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="4dp"
-                android:text="User:"
+                android:text="Sana:"
                 android:textSize="16dp"
                 android:textColor="@color/white"/>
 
