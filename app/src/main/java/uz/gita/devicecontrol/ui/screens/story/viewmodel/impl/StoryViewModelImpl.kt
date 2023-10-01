@@ -23,7 +23,7 @@ class StoryViewModelImpl @Inject constructor(private val repository: AppReposito
     override val loading = MutableLiveData<Boolean>()
     override val detailDevice = MutableLiveData<OnePageResponse>()
 
-    val list = Pager(PagingConfig(1)) {
+    override val list = Pager(PagingConfig(1)) {
         PagingSource(repository)
     }.flow.cachedIn(viewModelScope)
 
@@ -39,8 +39,10 @@ class StoryViewModelImpl @Inject constructor(private val repository: AppReposito
         viewModelScope.launch {
             loading.postValue(true)
             val response = repository.getAllDevices(id)
-            if (response.isSuccessful) {
-                detailDevice.postValue(response.body())
+            response.let {
+                if (it.isSuccessful) {
+                    detailDevice.postValue(response.body())
+                }
             }
             loading.postValue(false)
         }
