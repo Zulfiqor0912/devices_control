@@ -7,10 +7,13 @@ import uz.gita.devicecontrol.data.remote.models.request.LoginRequest
 import uz.gita.devicecontrol.data.remote.models.response.QRResponse
 import uz.gita.devicecontrol.data.remote.models.response.InsertResponse
 import uz.gita.devicecontrol.data.remote.models.response.LoginResponse
+import uz.gita.devicecontrol.data.remote.models.response.OnePageResponse
 
 interface AppRepository {
-    suspend fun login(loginRequest: LoginRequest):Response<LoginResponse>
-    suspend fun getDeviceById(id: String):Response<QRResponse>
+    suspend fun login(loginRequest: LoginRequest): Response<LoginResponse>
+    suspend fun getDeviceById(id: String): Response<QRResponse>
 
-    suspend fun inOut(data:InsertRequest):Response<InsertResponse>
+    suspend fun inOut(data: InsertRequest): Response<InsertResponse>
+
+    suspend fun getAllDevices(page: Int): Response<OnePageResponse>
 }

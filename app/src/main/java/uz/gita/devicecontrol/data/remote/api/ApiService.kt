@@ -8,11 +8,13 @@ import retrofit2.http.Header
 import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Path
+import retrofit2.http.Query
 import uz.gita.devicecontrol.data.remote.models.request.InsertRequest
 import uz.gita.devicecontrol.data.remote.models.request.LoginRequest
 import uz.gita.devicecontrol.data.remote.models.response.QRResponse
 import uz.gita.devicecontrol.data.remote.models.response.InsertResponse
 import uz.gita.devicecontrol.data.remote.models.response.LoginResponse
+import uz.gita.devicecontrol.data.remote.models.response.OnePageResponse
 
 interface ApiService {
 
@@ -34,7 +36,7 @@ interface ApiService {
     ): Response<InsertResponse>
 
     @GET("inventory/list/get")
-    suspend fun getAll() {
-
-    }
+    suspend fun getAll(
+        @Query("page") page: Int
+    ): Response<OnePageResponse>
 }

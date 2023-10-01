@@ -13,6 +13,7 @@ import uz.gita.devicecontrol.data.remote.models.request.LoginRequest
 import uz.gita.devicecontrol.data.remote.models.response.QRResponse
 import uz.gita.devicecontrol.data.remote.models.response.InsertResponse
 import uz.gita.devicecontrol.data.remote.models.response.LoginResponse
+import uz.gita.devicecontrol.data.remote.models.response.OnePageResponse
 import uz.gita.devicecontrol.domain.repositories.AppRepository
 import javax.inject.Inject
 
@@ -32,6 +33,10 @@ class AppRepositoryImpl @Inject constructor(
 
     override suspend fun inOut(data: InsertRequest): Response<InsertResponse> {
         return apiHelper.insertDevice("Bearer ${store.getToken()}", data)
+    }
+
+    override suspend fun getAllDevices(page: Int): Response<OnePageResponse> {
+        return apiHelper.getAllData(page)
     }
 
 }
