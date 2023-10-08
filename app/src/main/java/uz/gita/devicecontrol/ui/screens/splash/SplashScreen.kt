@@ -17,7 +17,6 @@ import uz.gita.devicecontrol.R
 class SplashScreen : Fragment(R.layout.screen_splash) {
     private val viewModel: SplashViewModel by viewModels<SplashViewModelImpl>()
     private lateinit var h: Handler
-    private val a = 1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         h = Handler(Looper.myLooper()!!)

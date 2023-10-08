@@ -18,8 +18,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModelImpl @Inject constructor(
-    private val repositoryImpl: AppRepositoryImpl,
-    private val store: Pref
+    private val repositoryImpl: AppRepositoryImpl
 ) : LoginViewModel, ViewModel() {
     private val TAG = "LoginViewModelImpl"
 
@@ -34,7 +33,7 @@ class LoginViewModelImpl @Inject constructor(
                 response.let { it ->
                     if (it.isSuccessful) {
                         it.body().let {
-                            store.saveToken(it!!.access_token)
+                            Pref.saveToken(it!!.access_token)
                             Log.d(TAG, "clickNextButton: ${it.access_token}")
                         }
                         Log.d("EEE", "Ochilgan")

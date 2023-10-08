@@ -1,17 +1,24 @@
 package uz.gita.devicecontrol.data.common.source
 
 import android.content.Context
+import android.content.SharedPreferences
 import uz.gita.devicecontrol.util.constants.Constants.*
-import javax.inject.Inject
 
-class Pref @Inject constructor(context: Context) {
-    private val pref = context.getSharedPreferences(PREF_NAME.value, Context.MODE_PRIVATE)
+object Pref {
+    private lateinit var preferences: SharedPreferences
+    private lateinit var editor: SharedPreferences.Editor
+
+    fun init(context: Context) {
+        preferences = context.getSharedPreferences(PREF_NAME.value, Context.MODE_PRIVATE)
+        editor = preferences.edit()
+    }
+
 
     fun saveToken(token: String) {
-        pref.edit().putString("TOKEN", token).apply()
+        editor.putString("TOKEN", token).apply()
     }
 
     fun getToken(): String? {
-        return pref.getString("TOKEN", "")
+        return preferences.getString("TOKEN", "")
     }
 }

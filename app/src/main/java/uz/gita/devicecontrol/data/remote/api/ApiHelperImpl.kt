@@ -1,13 +1,12 @@
 package uz.gita.devicecontrol.data.remote.api
 
-import kotlinx.coroutines.flow.Flow
 import retrofit2.Response
+import uz.gita.devicecontrol.data.common.model.AllDevicesResponse
 import uz.gita.devicecontrol.data.remote.models.request.InsertRequest
 import uz.gita.devicecontrol.data.remote.models.request.LoginRequest
 import uz.gita.devicecontrol.data.remote.models.response.QRResponse
 import uz.gita.devicecontrol.data.remote.models.response.InsertResponse
 import uz.gita.devicecontrol.data.remote.models.response.LoginResponse
-import uz.gita.devicecontrol.data.remote.models.response.OnePageResponse
 import javax.inject.Inject
 
 class ApiHelperImpl @Inject constructor(private val apiService: ApiService) : ApiHelper {
@@ -27,9 +26,10 @@ class ApiHelperImpl @Inject constructor(private val apiService: ApiService) : Ap
     }
 
     override suspend fun getAllData(
+        token: String,
         page: Int
-    ): Response<OnePageResponse> {
-        return apiService.getAll(page)
+    ): Response<AllDevicesResponse> {
+        return apiService.getAll(token,page)
     }
 
 

@@ -14,7 +14,7 @@ import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import uz.gita.devicecontrol.R
-import uz.gita.devicecontrol.data.common.model.DeviceData
+import uz.gita.devicecontrol.data.common.model.Data
 import uz.gita.devicecontrol.data.remote.models.request.InsertRequest
 import uz.gita.devicecontrol.data.remote.models.response.InsertResponse
 import uz.gita.devicecontrol.data.remote.models.response.QRResponse
@@ -68,7 +68,7 @@ class ControlScreen : Fragment(R.layout.screen_control) {
     }
 
     @SuppressLint("SetTextI18n")
-    private fun loadView(data: DeviceData) {
+    private fun loadView(data: Data) {
         binding.apply {
             driverInputId.text = "ID: ${data.id}"
             driverInputUserName.text = data.name

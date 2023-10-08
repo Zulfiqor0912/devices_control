@@ -1,13 +1,11 @@
 package uz.gita.devicecontrol.data.remote.models.request
 
-import java.io.Serializable
-
 data class InsertRequest(
-    val action_date: String = "",
-    val comment: String = "",
-    val employee_id: Int = -1,
-    val fc_id: Int? = null,
-    val product_id: Int = -1,
-    val room_id: Int = -1,
+    val action_date: String? = null,
+    val comment: String? = null,
+    val employee_id: Int? = null,
+    val fc_id: Any? = null,
+    val product_id: Int? = null,
+    val room_id: Int? = null,
     val status: Int? = null
-) : Serializable
+)

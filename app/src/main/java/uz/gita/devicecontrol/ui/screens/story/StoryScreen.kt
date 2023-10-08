@@ -15,9 +15,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import uz.gita.devicecontrol.R
+import uz.gita.devicecontrol.data.common.model.AllDevicesResponse
 import uz.gita.devicecontrol.data.common.model.TestData
 import uz.gita.devicecontrol.databinding.ScreenStoryBinding
 import uz.gita.devicecontrol.ui.adapters.DevicesAdapter
@@ -30,8 +31,7 @@ import uz.gita.devicecontrol.ui.screens.story.viewmodel.impl.StoryViewModelImpl
 class StoryScreen : Fragment(R.layout.screen_story) {
     private val binding by viewBinding(ScreenStoryBinding::bind)
     private val viewModel: StoryViewModel by viewModels<StoryViewModelImpl>()
-    private lateinit var deviceAdapter: DevicesAdapter
-    private lateinit var list: ArrayList<TestData>
+    private  var deviceAdapter =  DevicesAdapter()
     private val args by navArgs<StoryScreenArgs>()
 
 
@@ -39,17 +39,17 @@ class StoryScreen : Fragment(R.layout.screen_story) {
         super.onCreate(savedInstanceState)
         viewModel.openItemInfoLiveData.observe(this, openInfoObserver)
         viewModel.openHomeLiveData.observe(this, openHomeObserver)
+        viewModel.loadPage(1)
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        deviceAdapter = DevicesAdapter()
 
         binding.apply {
             val number = arguments
 
             lifecycleScope.launch {
-                viewModel.list.collect {
-                    Log.d("MMM", "$it")
+                viewModel.getDevicesPaging().collectLatest {
                     deviceAdapter.submitData(it)
                 }
             }
@@ -75,7 +75,7 @@ class StoryScreen : Fragment(R.layout.screen_story) {
             )
 
 
-//            recyclerView.adapter = adapter
+//            recyclerView.adapter = deviceAdapter
 //            recyclerView.layoutManager =
 //                StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
 

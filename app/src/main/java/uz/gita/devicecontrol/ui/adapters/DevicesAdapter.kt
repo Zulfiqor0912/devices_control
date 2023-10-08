@@ -6,20 +6,20 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import uz.gita.devicecontrol.data.common.model.DeviceData
+import uz.gita.devicecontrol.data.common.model.Data
 import uz.gita.devicecontrol.databinding.ItemInfoBinding
 
-class DevicesAdapter : PagingDataAdapter<DeviceData, DevicesAdapter.ViewHolder>(diffCallback) {
+class DevicesAdapter : PagingDataAdapter<Data, DevicesAdapter.ViewHolder>(diffCallback) {
     private lateinit var binding: ItemInfoBinding
     private lateinit var context: Context
-    private var onItemClickListener: ((DeviceData) -> Unit)? = null
+    private var onItemClickListener: ((Data) -> Unit)? = null
 
     companion object {
-        val diffCallback = object : DiffUtil.ItemCallback<DeviceData>() {
-            override fun areItemsTheSame(oldItem: DeviceData, newItem: DeviceData) =
+        val diffCallback = object : DiffUtil.ItemCallback<Data>() {
+            override fun areItemsTheSame(oldItem: Data, newItem: Data) =
                 oldItem.id == newItem.id
 
-            override fun areContentsTheSame(oldItem: DeviceData, newItem: DeviceData) =
+            override fun areContentsTheSame(oldItem: Data, newItem: Data) =
                 oldItem == newItem
 
         }
@@ -27,7 +27,7 @@ class DevicesAdapter : PagingDataAdapter<DeviceData, DevicesAdapter.ViewHolder>(
 
     inner class ViewHolder : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: DeviceData) {
+        fun bind(item: Data) {
             binding.apply {
                 textDeviceName.text = item.name
                 textUserName.text = item.account_number
@@ -38,7 +38,6 @@ class DevicesAdapter : PagingDataAdapter<DeviceData, DevicesAdapter.ViewHolder>(
 
     override fun onBindViewHolder(holder: DevicesAdapter.ViewHolder, position: Int) {
         holder.bind(getItem(position)!!)
-        holder.setIsRecyclable(false)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DevicesAdapter.ViewHolder {
@@ -47,7 +46,7 @@ class DevicesAdapter : PagingDataAdapter<DeviceData, DevicesAdapter.ViewHolder>(
         return ViewHolder()
     }
 
-    fun onItemClickListener(listener: (DeviceData) -> Unit) {
+    fun onItemClickListener(listener: (Data) -> Unit) {
         onItemClickListener = listener
     }
 
